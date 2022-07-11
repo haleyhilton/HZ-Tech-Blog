@@ -1,5 +1,3 @@
-//NEED TO FILL OUT
-
 const router = require('express').Router();
 
 const apiRoutes = require('./api');
