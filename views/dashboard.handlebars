@@ -1,9 +1,14 @@
+{#if logged_in}}
+<button id="newPostBtn">Create New Post</button>
+
 {{#if posts}}
 {{#each posts as |post| }}
 <div class="post">
     <div class="postUpper flexy toSides">
         <div class="postHeadline">
             {{post.headline}}
+            <button name="{{post.id}}" class="update">Update</button>
+            <button name="{{post.id}}" class="delete">Delete</button>
         </div>
         <div class="postInfo">
             Posted on {{post.updated_at}}
@@ -16,7 +21,9 @@
 {{/each}}
 {{/if}}
 
-{{!-- if there aren't any posts yet, this will appear --}}
-{{#unless posts}}
-<div>Be the first to post!  You can post from the dashboard once you have logged in!</div>
+<script src="/js/dashboard.js"></script>
+{{/if}}
+
+{{#unless logged_in}}
+<div id="unlessLoggedIn">Session expired!  Please log in again!</div>
 {{/unless}}

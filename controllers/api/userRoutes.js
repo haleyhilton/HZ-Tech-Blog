@@ -1,23 +1,36 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post } = require('../../models');
 
+//user get slash route returns all users (just used for testing, actually not used for website)
+router.get('/', async (req, res) => {
+    try {
+        const allUserData = await User.findAll({
+            include: [{ model: Post }],
+        });
+        res.status(200).json(allUserData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
+//route for logging in
 router.post('/login', async (req, res) => {
     try {
         const userData = await User.findOne({ where: { username: req.body.username } });
     
         if (!userData) {
-          res.status(400).json({ message: 'No go on the username, yo' });
+          res.status(400).json({ message: 'Incorrect username or password, please try again' });
           return;
         }
 
         const validPassword = await userData.checkPassword(req.body.password);
     
         if (!validPassword) {
-          res.status(400).json({ message: 'No go on the password, yo' });
+          res.status(400).json({ message: 'Incorrect email or password, please try again' });
           return;
         }
     
+        // Create session variables based on the logged in user
         req.session.save(() => {
           req.session.user_id = userData.id;
           req.session.logged_in = true;
@@ -30,6 +43,7 @@ router.post('/login', async (req, res) => {
       }
 });
 
+//route for logging out
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {
@@ -40,8 +54,13 @@ router.post('/logout', (req, res) => {
     }
 });
 
+//post route for creating new users
 router.post('/', async (req, res) => {
-
+    /* body example:
+    {
+        "username": "example_username",
+        "password": "example_password"
+    } */
     try {
         User.create(req.body).then((user) => {
             res.status(200).json(user);

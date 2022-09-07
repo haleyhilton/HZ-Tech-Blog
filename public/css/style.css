@@ -1,29 +1,223 @@
-header, .project:not(:last-child) {
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .no-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: #1b89bc;
-    text-decoration: none;
-    font-size: 100%;
-  }
-  
-  .no-button:hover {
-    color: #065b83;
-    text-decoration: underline;
-  }
+:root {
+  --oneColor: #2A1A1F;
+  --twoColor: #FFCF99;
+}
 
-  .global {
-      display: flex;
-      flex-wrap: wrap;
-      color: #065b83;
-  }
+html {
+  background-color: var(--twoColor);
+}
 
- form .form-input {
-      border: inset 4px #065b83;
-  }
+/* get rid of button decoration and styling */
+button {
+  background: none;
+color: inherit;
+border: none;
+padding: 0;
+font: inherit;
+cursor: pointer;
+outline: inherit;
+}
 
+button:focus {
+  border: none;
+  outline: none;
+}
+
+/* adjust input decoration and/or styling */
+input {
+  background: none;
+}
+
+/* placement */
+.flexy {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.toSides {
+  justify-content: space-between;
+}
+
+.toCenter {
+  justify-content: center;
+}
+
+.fullMargin-2 {
+  margin: 2px;
+}
+
+.fullMargin-5 {
+  margin: 5px;
+}
+
+.fullMargin-15 {
+  margin: 15px;
+}
+
+.fullPadding-15 {
+  padding: 15px;
+}
+
+/* specifics */
+h1 {
+  font-size: 45px;
+  background-color: var(--twoColor);
+  margin-left: 60px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 10px 10px gray;
+  border-radius: 5px;
+}
+
+#topSec {
+  padding: 20px;
+  background-color: var(--oneColor);
+}
+
+#topSecInner {
+  width: 50%;
+}
+
+.topSecLink {
+  font-size: 30px;
+  color: var(--twoColor);
+  margin-left: 25px;
+  margin-right: 15px;
+}
+
+#title {
+  background-color: var(--oneColor);
+  padding: 10px;
+}
+
+#mainSec {
+  background-color: var(--twoColor);
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.post {
+  margin: 25px;
+  border: 3px solid var(--oneColor);
+}
+
+.postUpper {
+  background-color: var(--oneColor);
+  margin-left: -1px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 5px;
+}
+
+.postHeadline {
+  color: var(--twoColor);
+  font-size: 25px;
+}
+
+.postInfo {
+  color: var(--twoColor);
+}
+
+.postLower {
+  padding: 5px;
+  font-size: 20px;
+}
+
+#loginFormHolder, #signupFormHolder {
+  border: solid;
+  border-radius: 5px;
+}
+
+#passwordLabel {
+  margin-right: 3px;
+}
+
+#login-submit, #signup-submit {
+  border: solid;
+  border-radius: 5px;
+  width: 80px;
+  font-size: 18px;
+}
+
+#login-submit:hover, signup-submit:hover {
+  background-color: var(--oneColor);
+  color: var(--twoColor);
+}
+
+#toSignupLabel, #toLoginLabel {
+  padding: 5px;
+}
+
+#toSignup, #toLogin {
+  border: solid;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+#toSignup:hover, #toLogin:hover {
+  background-color: var(--oneColor);
+  color: var(--twoColor);
+}
+
+#newPostBtn {
+  border: solid;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 25px;
+  font-size: 25px;
+}
+
+#newPostBtn:hover {
+  background-color: var(--oneColor);
+  color: var(--twoColor);
+}
+
+#newPostFormHolder {
+  border: solid;
+  border-radius: 5px;
+}
+
+#post-submit {
+  border: solid;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 25px;
+  font-size: 25px;
+}
+
+#post-submit:hover {
+  background-color: var(--oneColor);
+  color: var(--twoColor);
+}
+
+#newpost-headline, #newpost-content {
+  background: none;
+}
+
+.update, .delete {
+  font-size: 15px;
+  margin-left: 15px;
+}
+
+#updatePostFormHolder {
+  border: solid;
+  border-radius: 5px;
+}
+
+#save-submit {
+  border: solid;
+  border-radius: 5px;
+  padding: 2px;
+  margin: 25px;
+  font-size: 25px;
+}
+
+#save-submit:hover {
+  background-color: var(--oneColor);
+  color: var(--twoColor);
+}
+
+#unlessLoggedIn {
+  font-size: 25px;
+  margin: 35px;
+}

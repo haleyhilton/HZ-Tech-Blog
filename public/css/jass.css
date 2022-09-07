@@ -1011,6 +1011,10 @@
   .btn.btn-primary {
     background-color: #2d3e50;
     color: #d9e9e8;
+    line-height: 2rem;
+    width: 100%;
+    margin: 1rem 0px;
+    font-size: x-large;
   }
   
   .btn.btn-primary:hover {

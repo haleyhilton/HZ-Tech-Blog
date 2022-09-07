@@ -1,0 +1,29 @@
+{{#if logged_in}}
+<div class="flexy toCenter">
+
+    <div id="newPostFormHolder" class="fullPadding-15">
+        <form>
+            <div class="flexy toCenter fullMargin-15">
+                <h2> Create your new post! </h2>
+            </div>
+            <div class="fullMargin-2">
+                <div>Post Headline:</div>
+                <textarea id="newpost-headline" rows="1" cols="150"></textarea>
+            </div>
+            <div class="fullMargin-2">
+                <div>Post Content:</div>
+                <textarea id="newpost-content" rows="5" cols="150"></textarea>
+            </div>
+            <div class="flexy toCenter">
+                <button id="post-submit" class="fullMargin-15" type="submit">Post it!</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/js/newpost.js"></script>
+{{/if}}
+
+{{#unless logged_in}}
+<div id="unlessLoggedIn">Session expired!  Please log in again!</div>
+{{/unless}}
